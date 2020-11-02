@@ -12,6 +12,6 @@ export GO111MODULE=on
 VAULT_INSTALL_TARGET="/var/vcap/packages/vault"
 
 echo "Building Vault CF Auth Plugin ..."
-cd ${BOSH_COMPILE_TARGET}/paas-vault-plugin-auth-cf/
+cd ${BOSH_COMPILE_TARGET}/paas-vault-plugin-auth-cf/cmd/vault-plugin-auth-cf/
 go build -mod=vendor -o "${BOSH_INSTALL_TARGET}/paas-vault-plugin-auth-cf"
 chmod +x "${BOSH_INSTALL_TARGET}/paas-vault-plugin-auth-cf"
