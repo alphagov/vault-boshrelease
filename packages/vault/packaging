@@ -5,6 +5,7 @@ set -u # report the usage of uninitialized variables
 # $BOSH_COMPILE_TARGET - where this package & spec'd source files are available
 # $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
 export HOME=/var/vcap
+export CF_AUTH_PACKAGE_DIR="/var/vcap/packages/paas-vault-plugin-auth-cf"
 
 cd vault
 unzip vault_*_linux_amd64.zip
@@ -13,3 +14,6 @@ mkdir $BOSH_INSTALL_TARGET/bin
 cp -a vault $BOSH_INSTALL_TARGET/bin
 
 mkdir $BOSH_INSTALL_TARGET/plugins
+
+cp "${CF_AUTH_PACKAGE_DIR}/paas-vault-plugin-auth-cf" "${BOSH_INSTALL_TARGET}/plugins/paas-vault-plugin-auth-cf"
+

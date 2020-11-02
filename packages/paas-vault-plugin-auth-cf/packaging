@@ -15,7 +15,3 @@ echo "Building Vault CF Auth Plugin ..."
 cd ${BOSH_COMPILE_TARGET}/paas-vault-plugin-auth-cf/
 go build -mod=vendor -o "${BOSH_INSTALL_TARGET}/paas-vault-plugin-auth-cf"
 chmod +x "${BOSH_INSTALL_TARGET}/paas-vault-plugin-auth-cf"
-
-echo "Moving to Vault's plugin directory"
-mkdir -p "/var/vcap/packages/vault/plugins"
-cp "${BOSH_INSTALL_TARGET}/paas-vault-plugin-auth-cf" "${VAULT_INSTALL_TARGET}/plugins/paas-vault-plugin-auth-cf"

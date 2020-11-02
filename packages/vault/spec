@@ -1,5 +1,6 @@
 ---
 name: vault
-dependencies: []
+dependencies:
+- paas-vault-plugin-auth-cf
 files:
 - vault/vault_*_linux_amd64.zip
