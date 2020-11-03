@@ -31,7 +31,10 @@ case $1 in
     # store pid in $PIDFILE
     echo $$ > $PIDFILE
 
-    exec vault server -config=$JOB_DIR/config/server.hcl \
+    REAL_PLUGIN_PATH=$(readlink -f /var/vcap/packages/vault/plugins)
+    sed "s|PLUGIN_DIR|$REAL_PLUGIN_PATH|g" $JOB_DIR/config/server.hcl > $JOB_DIR/config/server-with-plugin-dir.hcl
+
+    exec vault server -config=$JOB_DIR/config/server-with-plugin-dir.hcl \
          >>$LOG_DIR/$JOB_NAME.log
 
     ;;
