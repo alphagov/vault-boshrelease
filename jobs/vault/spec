@@ -32,6 +32,9 @@ properties:
   vault.update.unseal_keys:
     description: "For a true zero-downtime update to an HA cluster each node must be individually unsealed once it has restarted. It is highly advised to generate new unseal keys via 'vault rekey' once the update has completed."
 
+  vault.ca_cert_path:
+    description: "Path to the certificate of the CA which signs the TLS certificates used by Vault. This should be a path provided by the `tls` property. E.g. /var/vcap/jobs/vault/tls/ca/cert.pem. Sets the 'VAULT_CACERT' path in the environment when monit scripts run the Vault CLI."
+
   #
   # TLS
   #
