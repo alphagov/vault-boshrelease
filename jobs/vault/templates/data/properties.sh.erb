@@ -21,3 +21,8 @@ export VAULT_TOKEN="<%= p("vault.update.step_down_token","") %>"
 <% if tls_skip_verify.to_s == "true" %>
 export VAULT_SKIP_VERIFY=1
 <% end %>
+
+<% ca_cert_path = p("vault.ca_cert_path", "") %>
+<% if ca_cert_path != "" %>
+export VAULT_CACERT="<%= ca_cert_path %>"
+<% end %>
